@@ -1,0 +1,22 @@
+.book-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.8rem;
+  padding: 4px 12px;
+  background: var(--color-tag-bg);
+  color: var(--color-accent);
+  border-radius: 100px;
+  transition: background 0.2s;
+  margin-top: 8px;
+}
+
+.book-link:hover {
+  background: var(--color-accent-light);
+  color: #fff;
+}
+
+.book-link-icon {
+  display: flex;
+  align-items: center;
+}

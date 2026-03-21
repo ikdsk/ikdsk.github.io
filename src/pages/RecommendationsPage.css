@@ -1,0 +1,118 @@
+.recommendations {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+/* Hero */
+.rec-hero {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.rec-hero-title {
+  font-size: 1.6rem;
+  color: var(--color-accent);
+  margin-bottom: 8px;
+}
+
+.rec-hero-desc {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Persona selector */
+.persona-selector {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  margin-bottom: 28px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.persona-selector::-webkit-scrollbar {
+  height: 4px;
+}
+
+.persona-selector::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 2px;
+}
+
+/* Persona profile */
+.persona-profile {
+  margin-bottom: 32px;
+}
+
+.persona-profile-inner {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+}
+
+.persona-profile-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--color-border);
+  flex-shrink: 0;
+}
+
+.persona-profile-text {
+  flex: 1;
+}
+
+.persona-profile-name {
+  font-size: 1.15rem;
+  font-weight: 700;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.persona-profile-meta {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--color-text-muted);
+  font-family: var(--font-sans);
+}
+
+.persona-profile-bio {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  margin-top: 6px;
+}
+
+/* Recommendation list */
+.rec-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+@media (max-width: 600px) {
+  .rec-hero-title {
+    font-size: 1.3rem;
+  }
+
+  .persona-profile-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 16px;
+  }
+
+  .persona-profile-name {
+    justify-content: center;
+  }
+}

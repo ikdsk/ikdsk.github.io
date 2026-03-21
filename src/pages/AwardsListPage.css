@@ -1,0 +1,42 @@
+.awards-list {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+.awards-list-title {
+  font-size: 1.5rem;
+  margin-bottom: 24px;
+}
+
+.awards-list-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.filter-btn {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  padding: 6px 16px;
+  border: 1px solid var(--color-border);
+  border-radius: 100px;
+  background: var(--color-bg-card);
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-btn:hover {
+  border-color: var(--color-accent-light);
+  color: var(--color-accent);
+}
+
+.filter-btn--active {
+  background: var(--color-accent);
+  color: #fff;
+  border-color: var(--color-accent);
+}
+
+/* card-grid is defined in HomePage.css, imported globally */

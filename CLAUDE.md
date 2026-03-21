@@ -103,9 +103,31 @@ src/
 
 `personas.ts` の `personas` 配列にオブジェクトを追加するだけ。UIは `personas.map()` で回しているので変更不要。
 
+### 5. 今月の話題本を更新する
+
+スキル `/shogun-monthly-book-reviewer` を使ってウェブ検索で話題本を収集し、`src/data/monthly.ts` を更新する。
+
+**MonthlyBook の型:**
+```typescript
+{
+  title: string;
+  author: string;
+  publisher: string;
+  genre: 'novel' | 'nonfiction' | 'shinsho' | 'business' | 'essay' | 'other';
+  reason: string;        // なぜ話題か
+  synopsis: string;      // 内容紹介 2-3文
+  review: string;        // AI書評 200文字以上（必須）
+  publishDate?: string;  // 発売日
+}
+```
+
+- 新しい月のデータは `monthlyPicks` 配列の **先頭** に追加
+- 各ジャンル最低5冊が目安
+- **書評は必ず200文字以上**
+
 ## 公開
 
-`npm run build` で `dist/` に静的ファイルが生成される。GitHub Pages / Vercel / Netlify / Cloudflare Pages にデプロイ可能。
+GitHub Pages で `https://ikdsk.github.io/` に公開中。`main` ブランチにpushすると GitHub Actions で自動デプロイ。
 
 GitHub Pages でサブパスにデプロイする場合は `vite.config.ts` の `base` を設定する。
 

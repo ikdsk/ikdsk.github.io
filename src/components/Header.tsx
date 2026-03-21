@@ -15,6 +15,7 @@ export default function Header() {
         <nav className="header-nav">
           <Link to="/">ホーム</Link>
           <Link to="/awards">賞一覧</Link>
+          <Link to="/monthly">今月の話題本</Link>
           <Link to="/recommendations">AI選書家</Link>
         </nav>
       </div>

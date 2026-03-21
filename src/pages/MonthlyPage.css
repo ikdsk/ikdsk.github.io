@@ -1,0 +1,260 @@
+.monthly {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+.monthly-hero {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.monthly-hero-title {
+  font-size: 1.6rem;
+  color: var(--color-accent);
+  margin-bottom: 8px;
+}
+
+.monthly-hero-desc {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Filters */
+.monthly-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.monthly-filter {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  padding: 6px 16px;
+  border: 1px solid var(--color-border);
+  border-radius: 100px;
+  background: var(--color-bg-card);
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.monthly-filter:hover {
+  border-color: var(--color-accent-light);
+  color: var(--color-accent);
+}
+
+.monthly-filter--active {
+  background: var(--color-accent);
+  color: #fff;
+  border-color: var(--color-accent);
+}
+
+/* Card list */
+.monthly-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Card */
+.monthly-card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.monthly-card-top {
+  display: flex;
+  gap: 18px;
+  padding: 24px 24px 16px;
+}
+
+.monthly-card-meta {
+  flex: 1;
+  min-width: 0;
+}
+
+.monthly-card-tags {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.monthly-card-genre {
+  font-size: 0.7rem;
+  font-weight: 500;
+  background: var(--color-tag-bg);
+  color: var(--color-accent);
+  padding: 2px 10px;
+  border-radius: 100px;
+}
+
+.monthly-card-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: 1.4;
+}
+
+.monthly-card-author {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-top: 3px;
+}
+
+.monthly-card-date {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  margin-top: 4px;
+}
+
+.monthly-card-reason {
+  font-size: 0.78rem;
+  color: var(--color-accent);
+  margin-top: 6px;
+  font-weight: 500;
+}
+
+/* Sections */
+.monthly-card-section {
+  margin: 0 24px;
+  padding: 14px 18px;
+  background: var(--color-bg);
+  border-radius: var(--radius-sm);
+  margin-bottom: 12px;
+}
+
+.monthly-card-review {
+  background: linear-gradient(135deg, #f8f4ee 0%, #f0ebe4 100%);
+  border-left: 3px solid var(--color-accent-light);
+  padding: 0;
+}
+
+.monthly-card-review-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  padding: 14px 18px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.monthly-card-review-toggle:hover {
+  opacity: 0.8;
+}
+
+.monthly-card-chevron {
+  margin-left: auto;
+  font-size: 0.65rem;
+}
+
+.monthly-card-ai-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6rem;
+  font-weight: 700;
+  width: 22px;
+  height: 16px;
+  background: var(--color-accent);
+  color: #fff;
+  border-radius: 3px;
+  letter-spacing: 0;
+}
+
+.monthly-card-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  margin-bottom: 6px;
+  font-family: var(--font-sans);
+}
+
+.monthly-card-text {
+  font-size: 0.9rem;
+  line-height: 1.9;
+  color: var(--color-text);
+}
+
+.monthly-card-review-text {
+  padding: 0 18px 14px;
+}
+
+/* Actions */
+.monthly-card-actions {
+  padding: 12px 24px;
+  border-top: 1px solid var(--color-border);
+}
+
+.monthly-card-amazon {
+  display: inline-block;
+  font-size: 0.75rem;
+  padding: 4px 14px;
+  background: var(--color-tag-bg);
+  color: var(--color-accent);
+  border-radius: 100px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.monthly-card-amazon:hover {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+/* Archive */
+.monthly-archive {
+  margin-top: 48px;
+}
+
+.monthly-archive-title {
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+}
+
+.monthly-archive-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 600px) {
+  .monthly-card-top {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 16px;
+  }
+
+  .monthly-card-tags {
+    justify-content: center;
+  }
+
+  .monthly-card-section {
+    margin: 0 16px 12px;
+  }
+
+  .monthly-card-actions {
+    padding: 12px 16px;
+  }
+
+  .monthly-hero-title {
+    font-size: 1.3rem;
+  }
+}

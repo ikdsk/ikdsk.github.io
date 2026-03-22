@@ -1,21 +1,78 @@
 import { useEffect, useState } from 'react';
 
-const cache = new Map<string, string | null>();
+const STORAGE_KEY = 'book-cover-cache';
+const CACHE_VERSION = 1;
+const CACHE_TTL = 7 * 24 * 60 * 60 * 1000; // 7 days
+
+interface CacheEntry {
+  url: string | null;
+  ts: number;
+}
+
+interface CacheStore {
+  v: number;
+  entries: Record<string, CacheEntry>;
+}
+
+// In-memory mirror of localStorage
+let memCache: Record<string, CacheEntry> = {};
+let loaded = false;
+
+function loadCache(): void {
+  if (loaded) return;
+  loaded = true;
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return;
+    const parsed: CacheStore = JSON.parse(raw);
+    if (parsed.v !== CACHE_VERSION) return;
+    memCache = parsed.entries;
+  } catch {
+    // corrupted cache, ignore
+  }
+}
+
+function saveCache(): void {
+  try {
+    const store: CacheStore = { v: CACHE_VERSION, entries: memCache };
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(store));
+  } catch {
+    // storage full, ignore
+  }
+}
+
+function getCached(key: string): string | null | undefined {
+  loadCache();
+  const entry = memCache[key];
+  if (!entry) return undefined;
+  if (Date.now() - entry.ts > CACHE_TTL) {
+    delete memCache[key];
+    return undefined;
+  }
+  return entry.url;
+}
+
+function setCached(key: string, url: string | null): void {
+  memCache[key] = { url, ts: Date.now() };
+  saveCache();
+}
 
 export function useBookCover(title: string, author: string): string | null {
   const key = `${title}::${author}`;
-  const [url, setUrl] = useState<string | null>(cache.get(key) ?? null);
+  const cached = getCached(key);
+  const [url, setUrl] = useState<string | null>(cached ?? null);
 
   useEffect(() => {
     if (author === '-' || author === '発表済') return;
-    if (cache.has(key)) {
-      setUrl(cache.get(key) ?? null);
+
+    const existing = getCached(key);
+    if (existing !== undefined) {
+      setUrl(existing);
       return;
     }
 
     let cancelled = false;
 
-    // Clean title: take first title if slash-separated, remove extra info
     const cleanTitle = title.split('/')[0].trim();
     const cleanAuthor = author.split('/')[0].split('、')[0].trim();
 
@@ -28,14 +85,13 @@ export function useBookCover(title: string, author: string): string | null {
         if (cancelled) return;
         const imageLinks = data.items?.[0]?.volumeInfo?.imageLinks;
         const thumb = imageLinks?.thumbnail ?? imageLinks?.smallThumbnail ?? null;
-        // Google Books returns http URLs, upgrade to https
         const secureUrl = thumb?.replace(/^http:/, 'https:') ?? null;
-        cache.set(key, secureUrl);
+        setCached(key, secureUrl);
         setUrl(secureUrl);
       })
       .catch(() => {
         if (!cancelled) {
-          cache.set(key, null);
+          setCached(key, null);
           setUrl(null);
         }
       });

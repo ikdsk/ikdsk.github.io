@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "covers": "node scripts/download-covers.mjs",
+    "build": "node scripts/download-covers.mjs; tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },

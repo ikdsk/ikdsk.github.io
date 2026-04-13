@@ -164,7 +164,7 @@ export const recommendations: Recommendation[] = [
   {
     personaId: 'teen-haruka',
     awardId: 'honya-taisho',
-    winnerIndex: 1,
+    winnerIndex: 2,
     comment:
       '成瀬あかり、推せる。マジで推せる。「二百歳まで生きる」とか言い出すし坊主頭で入学式来るし、普通だったらドン引きなのに成瀬だと「かっけー！」ってなる不思議。自分も成瀬みたいに空気読まずにやりたいことやれたらな……って思わされた。滋賀行きたくなった。',
   },
@@ -173,7 +173,7 @@ export const recommendations: Recommendation[] = [
   {
     personaId: 'mama-yuki',
     awardId: 'honya-taisho',
-    winnerIndex: 0,
+    winnerIndex: 1,
     comment:
       '『カフネ』、泣きました。弟を亡くした薫子の気持ちが痛いほどわかって。でもこの本のすごいところは、悲しみに寄り添いながらも「食べること」の力で前に進ませてくれるところ。家事代行のエピソードひとつひとつが温かくて、自分も誰かのためにご飯を作ろうって思えた。タイトルの意味を知ったとき、またじわっときます。忙しくても、これだけは読んでほしい。',
   },

@@ -9,13 +9,28 @@ interface Props {
   winner: Winner;
   comment: string;
   persona: Persona;
+  postedDate: string;
 }
 
-export default function RecommendationCard({ award, winner, comment, persona }: Props) {
+function formatPostedDate(iso: string): string {
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return iso;
+  const y = d.getFullYear();
+  const m = d.getMonth() + 1;
+  const day = d.getDate();
+  const dow = ['日', '月', '火', '水', '木', '金', '土'][d.getDay()];
+  return `${y}年${m}月${day}日（${dow}）`;
+}
+
+export default function RecommendationCard({ award, winner, comment, persona, postedDate }: Props) {
   const amazonUrl = amazonSearchUrl(winner.title, winner.author);
 
   return (
     <article className="rec-card">
+      <div className="rec-card-posted">
+        <time dateTime={postedDate}>{formatPostedDate(postedDate)}</time>
+        <span className="rec-card-posted-by">by {persona.name}</span>
+      </div>
       <Link to={`/award/${award.id}`} className="rec-card-link">
         <div className="rec-card-header">
           <span className="rec-card-award">{award.name}</span>

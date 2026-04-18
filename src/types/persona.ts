@@ -13,4 +13,6 @@ export interface Recommendation {
   awardId: string;
   winnerIndex: number;
   comment: string;
+  /** ブログ投稿日 'YYYY-MM-DD' */
+  postedDate: string;
 }

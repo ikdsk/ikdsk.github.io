@@ -16,7 +16,8 @@ export default function RecommendationsPage() {
       const winner = award?.winners[r.winnerIndex];
       return { ...r, award: award!, winner: winner! };
     })
-    .filter((r) => r.award && r.winner);
+    .filter((r) => r.award && r.winner)
+    .sort((a, b) => b.postedDate.localeCompare(a.postedDate));
 
   return (
     <div className="recommendations">
@@ -55,13 +56,18 @@ export default function RecommendationsPage() {
       </section>
 
       <section className="rec-list">
+        <h2 className="rec-list-title">
+          最新のレビュー
+          <span className="rec-list-count">{recs.length}件の投稿</span>
+        </h2>
         {recs.map((r) => (
           <RecommendationCard
-            key={`${r.awardId}-${r.winnerIndex}`}
+            key={`${r.awardId}-${r.winnerIndex}-${r.postedDate}`}
             award={r.award}
             winner={r.winner}
             comment={r.comment}
             persona={persona}
+            postedDate={r.postedDate}
           />
         ))}
       </section>

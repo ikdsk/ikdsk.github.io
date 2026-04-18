@@ -1,16 +1,27 @@
 import { Link } from 'react-router-dom';
 import { Award, Winner, amazonSearchUrl } from '../types/award';
-import { Persona } from '../types/persona';
+import { OwnPickBook, Persona } from '../types/persona';
 import BookCover from './BookCover';
 import './RecommendationCard.css';
 
-interface Props {
+type AwardCardProps = {
+  kind: 'award';
+  persona: Persona;
+  comment: string;
+  postedDate: string;
   award: Award;
   winner: Winner;
-  comment: string;
+};
+
+type OwnCardProps = {
+  kind: 'own';
   persona: Persona;
+  comment: string;
   postedDate: string;
-}
+  book: OwnPickBook;
+};
+
+export type RecommendationCardProps = AwardCardProps | OwnCardProps;
 
 function formatPostedDate(iso: string): string {
   const d = new Date(iso);
@@ -22,8 +33,11 @@ function formatPostedDate(iso: string): string {
   return `${y}年${m}月${day}日（${dow}）`;
 }
 
-export default function RecommendationCard({ award, winner, comment, persona, postedDate }: Props) {
-  const amazonUrl = amazonSearchUrl(winner.title, winner.author);
+export default function RecommendationCard(props: RecommendationCardProps) {
+  const { persona, comment, postedDate } = props;
+  const title = props.kind === 'award' ? props.winner.title : props.book.title;
+  const author = props.kind === 'award' ? props.winner.author : props.book.author;
+  const amazonUrl = amazonSearchUrl(title, author);
 
   return (
     <article className="rec-card">
@@ -31,22 +45,40 @@ export default function RecommendationCard({ award, winner, comment, persona, po
         <time dateTime={postedDate}>{formatPostedDate(postedDate)}</time>
         <span className="rec-card-posted-by">by {persona.name}</span>
       </div>
-      <Link to={`/award/${award.id}`} className="rec-card-link">
-        <div className="rec-card-header">
-          <span className="rec-card-award">{award.name}</span>
-          <span className="rec-card-year">{winner.year}</span>
-        </div>
-        <div className="rec-card-content">
-          <BookCover title={winner.title} author={winner.author} size="sm" />
-          <div className="rec-card-info">
-            <h3 className="rec-card-title">{winner.title}</h3>
-            <p className="rec-card-author">{winner.author}</p>
-            {winner.announcedMonth && (
-              <p className="rec-card-announced">{winner.announcedMonth} 発表</p>
-            )}
+
+      {props.kind === 'award' ? (
+        <Link to={`/award/${props.award.id}`} className="rec-card-link">
+          <div className="rec-card-header">
+            <span className="rec-card-award">{props.award.name}</span>
+            <span className="rec-card-year">{props.winner.year}</span>
+          </div>
+          <div className="rec-card-content">
+            <BookCover title={title} author={author} size="sm" />
+            <div className="rec-card-info">
+              <h3 className="rec-card-title">{title}</h3>
+              <p className="rec-card-author">{author}</p>
+              {props.winner.announcedMonth && (
+                <p className="rec-card-announced">{props.winner.announcedMonth} 発表</p>
+              )}
+            </div>
+          </div>
+        </Link>
+      ) : (
+        <div className="rec-card-link rec-card-link-static">
+          <div className="rec-card-content">
+            <BookCover title={title} author={author} size="sm" />
+            <div className="rec-card-info">
+              <h3 className="rec-card-title">{title}</h3>
+              <p className="rec-card-author">{author}</p>
+              {(props.book.publisher || props.book.publishDate) && (
+                <p className="rec-card-announced">
+                  {[props.book.publisher, props.book.publishDate].filter(Boolean).join(' / ')}
+                </p>
+              )}
+            </div>
           </div>
         </div>
-      </Link>
+      )}
 
       <div className="rec-card-comment">
         <div className="rec-card-comment-header">
@@ -67,9 +99,11 @@ export default function RecommendationCard({ award, winner, comment, persona, po
             Amazonで探す
           </a>
         )}
-        <Link to={`/award/${award.id}`} className="rec-card-detail">
-          賞の詳細を見る
-        </Link>
+        {props.kind === 'award' && (
+          <Link to={`/award/${props.award.id}`} className="rec-card-detail">
+            賞の詳細を見る
+          </Link>
+        )}
       </div>
     </article>
   );

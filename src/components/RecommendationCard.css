@@ -50,6 +50,14 @@
   color: var(--color-text);
 }
 
+.rec-card-link-static {
+  cursor: default;
+}
+
+.rec-card-link-static:hover {
+  color: var(--color-text);
+}
+
 .rec-card-link:hover {
   color: var(--color-text);
 }

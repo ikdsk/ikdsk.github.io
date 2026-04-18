@@ -50,10 +50,240 @@ export const personas: Persona[] = [
 
 export const recommendations: Recommendation[] = [
   // =========================================================
+  // 2026年4月 自発ピック ─ AI選書家が自分で見つけてきた新刊
+  // =========================================================
+  {
+    personaId: 'mystery-mika',
+    kind: 'own',
+    postedDate: '2026-04-18',
+    book: {
+      title: 'サプライズ・エンディングス 罠',
+      author: 'ジェフリー・ディーヴァー／池田真紀子 訳',
+      publisher: '文春文庫',
+      synopsis:
+        'リンカーン・ライム暗殺計画を扱う「完全犯罪計画」を含む、日本限定編纂のどんでん返し短編集全4編。犯罪組織壊滅作戦の考案を依頼されたミステリ作家を待つ末路など、皮肉な結末を連打する一冊。',
+      publishDate: '2026年3月',
+    },
+    comment:
+      'ディーヴァーの新刊はデフォルトで即買い。『サプライズ・エンディングス 罠』は日本限定編纂の短編集で、リンカーン・ライム暗殺計画を扱う「完全犯罪計画」ほか全4編。「どんでん返し」を看板にしながら、4編ともちゃんと質が違うのが凄い。中でも犯罪組織壊滅作戦の考案を依頼されたミステリ作家の話は皮肉がシャープすぎて笑った。ベタ褒めはしないけど、短編集で一切手を抜かないディーヴァーは別格。池田真紀子さんの訳もいつも通り鮮やか。',
+  },
+  {
+    personaId: 'mama-yuki',
+    kind: 'own',
+    postedDate: '2026-04-18',
+    book: {
+      title: 'ありか',
+      author: '瀬尾まいこ',
+      publisher: '水鈴社',
+      synopsis:
+        '母親との関係に悩みながら一人娘のひかりを慈しむシングルマザー・美空と、その義弟・颯斗、周囲の人々の悲喜こもごもの1年間。著者が「これまでの人生を全部込めた」と語る書き下ろし長編。',
+      publishDate: '2025年4月',
+    },
+    comment:
+      '日曜の朝刊に書評が載っていて、夫が「これ、ゆきが好きそう」と切り抜いて渡してくれました。瀬尾まいこさんの『ありか』は、母親との関係に悩みながら一人娘のひかりを慈しむシングルマザー・美空の1年を描いた物語。瀬尾さんご自身が「人生を全部込めた」と言い切る通り、日々の小さな場面が愛おしいほど丁寧で、子育ての最中に読むと目頭が熱くなります。悲喜こもごも、の「喜」の方にそっと光を当ててくれる筆致。今年いちばんの一冊になりそうです。',
+  },
+  {
+    personaId: 'business-taro',
+    kind: 'own',
+    postedDate: '2026-04-17',
+    book: {
+      title: '冒険する組織のつくりかた 「軍事的世界観」を抜け出す5つの思考法',
+      author: '安斎勇樹',
+      publisher: 'ディスカヴァー・トゥエンティワン',
+      synopsis:
+        'MIMIGURI代表・安斎勇樹による組織論の新作。指令と統制を軸とする「軍事的世界観」から抜け出し、目標・チーム・会議・成長・組織という5つのレンズで新時代の組織モデル「CCM」を提示する。',
+      publishDate: '2025年1月',
+    },
+    comment:
+      '社内の若手が読書会で熱く推していて、正直「え、マネジメント本？」と意外に思いながら手に取りました。安斎勇樹さんの『冒険する組織のつくりかた』は、指令・統制・敵の想定で成り立つ従来の「軍事的世界観」から抜け出すための5つのレンズを提示する野心作です。ビジネス書グランプリ2026マネジメント部門第1位も納得の説得力。若手が惹かれたのは、目標ではなく「好奇心」で駆動する組織モデル。耳が痛いですが、次の社内研修で使わせていただきます。',
+  },
+  {
+    personaId: 'teen-haruka',
+    kind: 'own',
+    postedDate: '2026-04-17',
+    book: {
+      title: 'サイレント・ウィッチ X 沈黙の魔女の隠しごと',
+      author: '依空まつり／藤実なんな（イラスト）',
+      publisher: 'カドカワBOOKS',
+      synopsis:
+        '無詠唱魔術の唯一の使い手にして最年少の七賢人・モニカ・エヴァレットが、人見知りのまま第二王子の護衛任務を秘密裏に遂行するファンタジー。シリーズ10巻目にして累計200万部突破。',
+      publishDate: '2025年11月',
+    },
+    comment:
+      'TikTokでみんなが推してたから即ポチったら……マジで沼！！依空まつり先生の『サイレント・ウィッチ X』でシリーズ10巻目、累計200万部突破ってヤバすぎでしょ。主人公モニカが人見知りすぎて無詠唱魔術を極めたっていう設定だけで大好き。15歳で七賢人って何よ、天才すぎ！TVアニメも去年観たけど原作の情報量はやっぱり別格で、モニカの心の声がもう……尊い。表紙の藤実なんなセンセのイラストも神。カドカワBOOKSの本気を感じる一冊！',
+  },
+  {
+    personaId: 'bungaku-sensei',
+    kind: 'own',
+    postedDate: '2026-04-15',
+    book: {
+      title: '夜空に浮かぶ欠けた月たち',
+      author: '窪美澄',
+      publisher: '角川文庫',
+      synopsis:
+        '「椎木メンタルクリニック」を舞台にした連作短編集。学校へ行けなくなった女子大生、高齢出産で命を愛せなくなった母親など、傷ついた人々にそっと寄り添う。「読書メーター OF THE YEAR 2023-2024」ノミネート。',
+      publishDate: '2026年2月',
+    },
+    comment:
+      '朝刊の書評欄で目に留まりまして、早速取り寄せました。窪美澄さんの『夜空に浮かぶ欠けた月たち』は、「椎木メンタルクリニック」を舞台にした連作短編集です。憧れの大学に進んだのに学校へ行けなくなった女子大生、高齢出産で命を愛せなくなった母親——傷ついた人々に静かに寄り添う筆致が、教師として多くの生徒の揺らぎを見てきた身に沁みます。「形が違ってもそのままで大丈夫」——これを言葉で証明してみせる小説ですね。角川文庫の新刊です。',
+  },
+  {
+    personaId: 'mama-yuki',
+    kind: 'own',
+    postedDate: '2026-04-13',
+    book: {
+      title: '熟柿',
+      author: '佐藤正午',
+      publisher: 'KADOKAWA',
+      synopsis:
+        '轢き逃げで服役中に息子を出産した女性が、出所後も息子に会えないまま各地を転々とする17年間を描く長編。「熟柿」のように時機が来るのを待つ母の物語。中央公論文芸賞受賞。',
+      publishDate: '2025年6月',
+    },
+    comment:
+      '図書館の予約が何ヶ月も取れなくて、やっと順番が回ってきた一冊。佐藤正午さんの『熟柿』は、轢き逃げで服役中に息子を出産し、出所後も息子に会えないまま各地を転々とする女性の17年を描いた長編です。中央公論文芸賞も受賞したそうで、読めば納得。子どもと引き離されるという、母として想像しただけで胸が痛む設定なのに、文体は淡々としていて、だからこそ沁みる。タイトル「熟柿」が示す「時機が熟すのを待つ」という母の覚悟が、読後もずっと残ります。',
+  },
+  {
+    personaId: 'teen-haruka',
+    kind: 'own',
+    postedDate: '2026-04-13',
+    book: {
+      title: '雨森潤奈は湿度が高い',
+      author: '水城水城／潮崎しの（イラスト）',
+      publisher: 'MF文庫J',
+      synopsis:
+        '雨の日の放課後だけ視聴覚室で会う女子・雨森潤奈。表面は無表情で素っ気ないのに、距離だけやたら近い。晴れの日に彼女の「秘密」がバレたあと、愛情が溢れ出す新感覚ラブコメ。「このラノ2026」新作文庫5位。',
+      publishDate: '2024年10月',
+    },
+    comment:
+      '帰り道の書店のPOPが可愛すぎて即買い。水城水城先生の『雨森潤奈は湿度が高い』、タイトル時点で天才でしょ！雨の日の放課後だけ視聴覚室で会う女子、雨森潤奈。表面は無表情で素っ気ないのに距離だけやたら近い、っていう「湿度」の設定が比喩として効きすぎててゾクゾクする。晴れの日に彼女の「秘密」がバレたあとの甘さの落差もすごい。MF文庫Jの「このラノ2026」新作文庫5位も納得。2巻まで読んだけど3巻予約済み！',
+  },
+  {
+    personaId: 'mystery-mika',
+    kind: 'own',
+    postedDate: '2026-04-12',
+    book: {
+      title: '暁星',
+      author: '湊かなえ',
+      publisher: '双葉社',
+      synopsis:
+        '現役文部科学大臣にして文壇の大御所作家・清水義之が、全国高校生総合文化祭の式典で刺殺される。逮捕された37歳の永瀬暁が獄中で連載を始めた手記は、新興宗教への怨みを綴っていた。本屋大賞2026で5位。',
+      publishDate: '2025年11月',
+    },
+    comment:
+      '書評用の積み本の山から先に手を伸ばしたのがこれ。湊かなえは最初の1ページで読ませる力が段違い。『暁星』は現役大臣兼ベストセラー作家が高校生総合文化祭で刺殺されるという導入から、逮捕された男が獄中手記で新興宗教への怨みを綴っていく、社会派サスペンスの本気モード。獄中手記、遺族、証言者、複数の声が重なる構成は湊ミステリの常套手段だが、今回は政治×宗教にまで踏み込んでいる。本屋大賞2026で5位も妥当な完成度。',
+  },
+  {
+    personaId: 'bungaku-sensei',
+    kind: 'own',
+    postedDate: '2026-04-11',
+    book: {
+      title: '眠れぬおまえに遠くの夜を',
+      author: '桐野夏生',
+      publisher: '文藝春秋',
+      synopsis:
+        '敗北と栄光、生と死——人気俳優テミンが、終わった男・ナダンについて語り出す。二人の男の運命が交錯する長編。『文藝春秋』2026年2月号で特集された桐野夏生の最新作。',
+      publishDate: '2026年2月',
+    },
+    comment:
+      '『文藝春秋』の連載時から気になっていた作品が、単行本となってようやく手元に届きました。桐野夏生さんの『眠れぬおまえに遠くの夜を』は、敗北と栄光、生と死——二人の男の交錯する運命を追う長編です。人気俳優が語るもう一人の男の物語という構成が巧妙で、桐野文学の「社会の周縁から世界を見る」視点が健在です。大作家が晩年に到達した境地というにはまだ早いのでしょうが、この練り込まれた文体と構成力は圧倒的。読書会の4月の課題図書に決めました。',
+  },
+  {
+    personaId: 'business-taro',
+    kind: 'own',
+    postedDate: '2026-04-11',
+    book: {
+      title: 'お金の不安という幻想 一生働く時代で希望をつかむ8つの視点',
+      author: '田内学',
+      publisher: '朝日新聞出版',
+      synopsis:
+        '元ゴールドマン・サックス証券トレーダーによる経済エッセイ。「その不安は誰かのビジネス」「会社に守られるという幻想」など8つの視点から、お金とは「誰かの労働」であるという本質に迫る。ビジネス書グランプリ2026総合3位・リベラルアーツ部門1位。',
+      publishDate: '2025年10月',
+    },
+    comment:
+      '日経の書評欄で存在を知り、連休明けの移動中に読了しました。元ゴールドマン・サックスの田内学さんが、「お金があれば安心」という思い込みを8つの視点から解体していきます。「投資とギャンブルの境界線」「会社に守られるという幻想」といった章題だけで、顧客企業の経営層に渡したくなる内容。ビジネス書グランプリ2026のリベラルアーツ部門1位・総合3位。金融の最前線にいた人間だからこそ書ける、貨幣を「誰かの労働」として捉え直す視座に唸らされました。',
+  },
+  {
+    personaId: 'mystery-mika',
+    kind: 'own',
+    postedDate: '2026-04-09',
+    book: {
+      title: '探偵小石は恋しない',
+      author: '森バジル',
+      publisher: '小学館',
+      synopsis:
+        'ミステリオタクの探偵・小石が夢見るのは名探偵。だが依頼の99.9％は浮気調査。そんな小石と調査員・蓮杖のバディが掴む違和感が、終盤で一気に落ちる本格ミステリ。発売7日で重版、本屋大賞2026で8位。',
+      publishDate: '2025年9月',
+    },
+    comment:
+      '装丁と帯のコピーが攻めすぎていてずっと気になっていた一冊。森バジルの『探偵小石は恋しない』は、ミステリオタクの探偵・小石が浮気調査ばかりを請けているという設定からしてメタ的。だが読むとこれが本格ミステリの作法をキチンと踏んでいて驚く。各話で積まれていく違和感が、終盤で一気に綺麗に落ちるフェアプレイぶり。発売7日で重版、本屋大賞8位も納得。「小石は恋しない」というタイトルの意味が判明する瞬間、私はニヤッとしてしまいました。',
+  },
+  {
+    personaId: 'mama-yuki',
+    kind: 'own',
+    postedDate: '2026-04-09',
+    book: {
+      title: 'さよならジャバウォック',
+      author: '伊坂幸太郎',
+      publisher: '双葉社',
+      synopsis:
+        '結婚直後の妊娠、夫の豹変、DV。浴室で夫が死んでいる——妻・量子の告白から始まる、伊坂幸太郎デビュー25周年記念の書き下ろし長編。SF的仕掛けと家族の物語が交差する群像ミステリ。',
+      publishDate: '2025年10月',
+    },
+    comment:
+      '子どもたちを寝かしつけた後、そっとページをめくりました。伊坂幸太郎さんの『さよならジャバウォック』、冒頭の「私が殺したのだ」という一文で心拍が上がって、寝不足確定の一夜でした。DVの末に夫が死んでいる、幼稚園から息子が帰ってくる、そこに昔の後輩が訪ねてくる——母親として読むと、浴室のシーンのリアルさに息が詰まります。SFめいた仕掛けと伊坂節の会話劇が絡み合って、切ないのに救いがある。デビュー25周年、伊坂先生ありがとうございます。',
+  },
+  {
+    personaId: 'teen-haruka',
+    kind: 'own',
+    postedDate: '2026-04-08',
+    book: {
+      title: 'さよならジャバウォック',
+      author: '伊坂幸太郎',
+      publisher: '双葉社',
+      synopsis:
+        '浴室で死んでいる夫、幼稚園から帰ってくる息子、訪ねてくる大学時代の後輩——伊坂幸太郎デビュー25周年を飾る書き下ろし長編ミステリ。群像劇とSF的仕掛けが絡み合う渾身の一作。',
+      publishDate: '2025年10月',
+    },
+    comment:
+      '推しの作家さんがSNSで絶賛してて、読まないわけにいかないってなって即買い。伊坂幸太郎先生のデビュー25周年書き下ろし、ちゃんと「伊坂」を更新してきてて震えた。妊娠後に豹変した夫の浴室の死体、そこへ大学時代の後輩が訪ねてくるっていう導入からもう離せない。SF的な仕掛けと家族の物語が絡み合って、読後のビターな後味がクセになる。児島青さんのマンガ版冒頭も読んだけど、あれは原作と合わせ技で最強。デビュー25周年とかバケモンすぎ！',
+  },
+  {
+    personaId: 'bungaku-sensei',
+    kind: 'own',
+    postedDate: '2026-04-07',
+    book: {
+      title: 'エピクロスの処方箋',
+      author: '夏川草介',
+      publisher: '水鈴社',
+      synopsis:
+        '『スピノザの診察室』続編。地域病院で働く内科医の雄町哲郎に、かつて激怒させた大学病院の権力者・飛良泉寅彦教授の父親の難症例が持ち込まれる。古代ギリシャの幸福論を通奏低音に、命と幸福を問う。本屋大賞2026ノミネート。',
+      publishDate: '2025年10月',
+    },
+    comment:
+      '月例読書会のメンバーが熱心に薦めてくださって拝読しました。『スピノザの診察室』の続編ですが、本作から読んでも心配は要りません。夏川草介さんは現役医師として、医療の限界と「人の命と幸福」について真っ直ぐに問いかけます。地域病院で働く内科医・雄町哲郎に、かつて激怒させた権力者の父親の症例が持ち込まれる——対立構造が古典的でありながら、古代ギリシャ哲学エピクロスの幸福論が静かな通奏低音を流す。本屋大賞にノミネートされたのも納得の、たおやかな作品です。',
+  },
+  {
+    personaId: 'business-taro',
+    kind: 'own',
+    postedDate: '2026-04-07',
+    book: {
+      title: 'PRIZE―プライズ―',
+      author: '村山由佳',
+      publisher: '文藝春秋',
+      synopsis:
+        '直木賞を貪欲に求めるベストセラー作家・天羽カインと、彼女を取り巻く人々の破壊的な情熱を描く衝撃作。「ダ・ヴィンチ BOOK OF THE YEAR 2025」小説部門1位、本屋大賞2026ノミネート。',
+      publishDate: '2025年1月',
+    },
+    comment:
+      'クライアント企業の広報担当者と会食した際、「業界のパワーゲームを理解したいなら」と薦められた一冊。村山由佳さんの『PRIZE―プライズ―』は、直木賞を貪欲に求めるベストセラー作家の野望と、それを取り巻く出版界の権力構造を暴き出します。「賞」という承認システムの裏にある政治と駆け引きは、企業内の人事評価や株主総会と驚くほど重なる。文学界を題材にしながら、組織論として読めてしまう一冊です。本屋大賞ノミネートも納得。',
+  },
+
+  // =========================================================
   // 2026年4月 最新投稿 ─ 本屋大賞2026『イン・ザ・メガチャーチ』を各選書家が語る
   // =========================================================
   {
     personaId: 'teen-haruka',
+    kind: 'award',
     awardId: 'honya-taisho',
     winnerIndex: 0,
     postedDate: '2026-04-18',
@@ -62,6 +292,7 @@ export const recommendations: Recommendation[] = [
   },
   {
     personaId: 'mama-yuki',
+    kind: 'award',
     awardId: 'honya-taisho',
     winnerIndex: 0,
     postedDate: '2026-04-17',
@@ -70,6 +301,7 @@ export const recommendations: Recommendation[] = [
   },
   {
     personaId: 'bungaku-sensei',
+    kind: 'award',
     awardId: 'honya-taisho',
     winnerIndex: 0,
     postedDate: '2026-04-16',
@@ -78,6 +310,7 @@ export const recommendations: Recommendation[] = [
   },
   {
     personaId: 'business-taro',
+    kind: 'award',
     awardId: 'honya-taisho',
     winnerIndex: 0,
     postedDate: '2026-04-15',
@@ -86,6 +319,7 @@ export const recommendations: Recommendation[] = [
   },
   {
     personaId: 'mystery-mika',
+    kind: 'award',
     awardId: 'kinobes',
     winnerIndex: 0,
     postedDate: '2026-04-14',
@@ -98,6 +332,7 @@ export const recommendations: Recommendation[] = [
   // =========================================================
   {
     personaId: 'mama-yuki',
+    kind: 'award',
     awardId: 'shibata-renzaburo-sho',
     winnerIndex: 0,
     postedDate: '2026-04-10',
@@ -106,6 +341,7 @@ export const recommendations: Recommendation[] = [
   },
   {
     personaId: 'teen-haruka',
+    kind: 'award',
     awardId: 'mephisto-sho',
     winnerIndex: 0,
     postedDate: '2026-04-09',
@@ -114,6 +350,7 @@ export const recommendations: Recommendation[] = [
   },
   {
     personaId: 'mystery-mika',
+    kind: 'award',
     awardId: 'yamada-futaro-sho',
     winnerIndex: 0,
     postedDate: '2026-04-08',
@@ -122,6 +359,7 @@ export const recommendations: Recommendation[] = [
   },
   {
     personaId: 'teen-haruka',
+    kind: 'award',
     awardId: 'dengeki-shosetsu-taisho',
     winnerIndex: 1,
     postedDate: '2026-04-07',
@@ -130,6 +368,7 @@ export const recommendations: Recommendation[] = [
   },
   {
     personaId: 'bungaku-sensei',
+    kind: 'award',
     awardId: 'naoki-sho',
     winnerIndex: 0,
     postedDate: '2026-04-06',
@@ -138,6 +377,7 @@ export const recommendations: Recommendation[] = [
   },
   {
     personaId: 'business-taro',
+    kind: 'award',
     awardId: 'matsumoto-seicho-sho',
     winnerIndex: 0,
     postedDate: '2026-04-05',
@@ -146,6 +386,7 @@ export const recommendations: Recommendation[] = [
   },
   {
     personaId: 'bungaku-sensei',
+    kind: 'award',
     awardId: 'nihon-sf-taisho',
     winnerIndex: 0,
     postedDate: '2026-04-04',
@@ -154,6 +395,7 @@ export const recommendations: Recommendation[] = [
   },
   {
     personaId: 'mystery-mika',
+    kind: 'award',
     awardId: 'yoshikawa-eiji-shinjin-sho',
     winnerIndex: 0,
     postedDate: '2026-04-03',
@@ -162,6 +404,7 @@ export const recommendations: Recommendation[] = [
   },
   {
     personaId: 'business-taro',
+    kind: 'award',
     awardId: 'yoshikawa-eiji-bungaku-sho',
     winnerIndex: 0,
     postedDate: '2026-04-02',
@@ -174,6 +417,7 @@ export const recommendations: Recommendation[] = [
   // =========================================================
   {
     personaId: 'bungaku-sensei',
+    kind: 'award',
     awardId: 'akutagawa-sho',
     winnerIndex: 0,
     postedDate: '2026-02-05',
@@ -186,6 +430,7 @@ export const recommendations: Recommendation[] = [
   // =========================================================
   {
     personaId: 'mystery-mika',
+    kind: 'award',
     awardId: 'kono-mystery-ga-sugoi',
     winnerIndex: 0,
     postedDate: '2025-12-12',
@@ -194,6 +439,7 @@ export const recommendations: Recommendation[] = [
   },
   {
     personaId: 'teen-haruka',
+    kind: 'award',
     awardId: 'kono-light-novel-ga-sugoi',
     winnerIndex: 0,
     postedDate: '2025-12-08',
@@ -202,6 +448,7 @@ export const recommendations: Recommendation[] = [
   },
   {
     personaId: 'business-taro',
+    kind: 'award',
     awardId: 'shinsho-taisho',
     winnerIndex: 1,
     postedDate: '2025-11-22',
@@ -210,6 +457,7 @@ export const recommendations: Recommendation[] = [
   },
   {
     personaId: 'mama-yuki',
+    kind: 'award',
     awardId: 'shinsho-taisho',
     winnerIndex: 1,
     postedDate: '2025-11-15',
@@ -218,6 +466,7 @@ export const recommendations: Recommendation[] = [
   },
   {
     personaId: 'teen-haruka',
+    kind: 'award',
     awardId: 'mephisto-sho',
     winnerIndex: 1,
     postedDate: '2025-11-02',
@@ -226,6 +475,7 @@ export const recommendations: Recommendation[] = [
   },
   {
     personaId: 'bungaku-sensei',
+    kind: 'award',
     awardId: 'tanizaki-junichiro-sho',
     winnerIndex: 0,
     postedDate: '2025-10-28',
@@ -234,6 +484,7 @@ export const recommendations: Recommendation[] = [
   },
   {
     personaId: 'bungaku-sensei',
+    kind: 'award',
     awardId: 'kobayashi-hideo-sho',
     winnerIndex: 0,
     postedDate: '2025-10-12',
@@ -242,6 +493,7 @@ export const recommendations: Recommendation[] = [
   },
   {
     personaId: 'teen-haruka',
+    kind: 'award',
     awardId: 'seiun-sho',
     winnerIndex: 0,
     postedDate: '2025-09-20',
@@ -250,6 +502,7 @@ export const recommendations: Recommendation[] = [
   },
   {
     personaId: 'mystery-mika',
+    kind: 'award',
     awardId: 'edogawa-ranpo-sho',
     winnerIndex: 0,
     postedDate: '2025-08-18',
@@ -258,6 +511,7 @@ export const recommendations: Recommendation[] = [
   },
   {
     personaId: 'business-taro',
+    kind: 'award',
     awardId: 'oya-soichi-sho',
     winnerIndex: 0,
     postedDate: '2025-07-25',
@@ -266,6 +520,7 @@ export const recommendations: Recommendation[] = [
   },
   {
     personaId: 'mystery-mika',
+    kind: 'award',
     awardId: 'suiri-sakka-kyokai-sho',
     winnerIndex: 0,
     postedDate: '2025-07-10',
@@ -274,6 +529,7 @@ export const recommendations: Recommendation[] = [
   },
   {
     personaId: 'bungaku-sensei',
+    kind: 'award',
     awardId: 'mishima-yukio-sho',
     winnerIndex: 0,
     postedDate: '2025-06-28',
@@ -282,6 +538,7 @@ export const recommendations: Recommendation[] = [
   },
   {
     personaId: 'business-taro',
+    kind: 'award',
     awardId: 'yamamoto-shugoro-sho',
     winnerIndex: 0,
     postedDate: '2025-06-14',
@@ -290,6 +547,7 @@ export const recommendations: Recommendation[] = [
   },
   {
     personaId: 'mama-yuki',
+    kind: 'award',
     awardId: 'honya-taisho',
     winnerIndex: 1,
     postedDate: '2025-05-10',
@@ -298,6 +556,7 @@ export const recommendations: Recommendation[] = [
   },
   {
     personaId: 'mystery-mika',
+    kind: 'award',
     awardId: 'honkaku-mystery-taisho',
     winnerIndex: 0,
     postedDate: '2025-05-04',
@@ -306,6 +565,7 @@ export const recommendations: Recommendation[] = [
   },
   {
     personaId: 'mama-yuki',
+    kind: 'award',
     awardId: 'yoshikawa-eiji-shinjin-sho',
     winnerIndex: 1,
     postedDate: '2025-04-12',
@@ -314,6 +574,7 @@ export const recommendations: Recommendation[] = [
   },
   {
     personaId: 'teen-haruka',
+    kind: 'award',
     awardId: 'honya-taisho',
     winnerIndex: 2,
     postedDate: '2025-02-22',
@@ -322,6 +583,7 @@ export const recommendations: Recommendation[] = [
   },
   {
     personaId: 'business-taro',
+    kind: 'award',
     awardId: 'naoki-sho',
     winnerIndex: 2,
     postedDate: '2025-02-08',
@@ -330,6 +592,7 @@ export const recommendations: Recommendation[] = [
   },
   {
     personaId: 'mama-yuki',
+    kind: 'award',
     awardId: 'naoki-sho',
     winnerIndex: 3,
     postedDate: '2024-09-18',

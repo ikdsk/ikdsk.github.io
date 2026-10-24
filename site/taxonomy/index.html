@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="界・門・綱・目・科・属・種をクリックでたどって、生き物の分類を楽しく学べるページ。">
+  <title>生き物の分類たんけん</title>
+  <script>
+    // 末尾スラッシュなしで配信パス配下を開いたとき、相対パスが壊れないよう補正（file:// は対象外）
+    (function () {
+      var l = location;
+      if ((l.protocol === 'http:' || l.protocol === 'https:') && !/\/$/.test(l.pathname) && !/\.html$/.test(l.pathname)) {
+        l.replace(l.pathname + '/' + l.search + l.hash);
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">本文へスキップ</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <h1><a href="#/">生き物の分類たんけん</a></h1>
+        <p class="tagline">界・門・綱・目・科・属・種をたどって、生き物の「住所」をさがそう</p>
+      </div>
+      <div class="search" role="search">
+        <label for="q" class="sr-only">生き物や分類の名前でさがす</label>
+        <input id="q" type="search" placeholder="名前でさがす（例：とら／ネコ科／Panthera）" autocomplete="off"
+               role="combobox" aria-expanded="false" aria-controls="results" aria-autocomplete="list">
+        <ul id="results" role="listbox" aria-label="けんさく結果" hidden></ul>
+      </div>
+      <nav class="modes" aria-label="モードの切りかえ">
+        <a href="#/" data-mode="explore">📖 図鑑</a>
+        <a href="#/compare" data-mode="compare">⚖️ くらべてみよう</a>
+        <a href="#/tree" data-mode="tree">🌳 樹形図</a>
+        <a href="#/quiz" data-mode="quiz">❓ クイズ</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="stairs-wrap">
+    <nav id="stairs" aria-label="いまの場所（分類の階段）"><ol class="stairs"></ol></nav>
+  </div>
+
+  <main id="main" tabindex="-1"></main>
+
+  <footer class="site-footer">
+    <p id="footer-note"></p>
+    <p>ブラウザだけで動きます。写真はインターネットから読み込みますが、読めないときは絵文字で表示するので、通信なしでも使えます。</p>
+    <p class="photo-note">写真は <a href="https://commons.wikimedia.org/" target="_blank" rel="noopener">Wikimedia Commons</a> の各作者によるものです。ライセンスは各写真のクレジットを見てください。</p>
+  </footer>
+
+  <noscript><p class="noscript">このページを使うには JavaScript を有効にしてください。</p></noscript>
+  <script src="data/taxonomy-ext-mammals-birds.js"></script>
+  <script src="data/taxonomy-ext-herp-fish.js"></script>
+  <script src="data/taxonomy-ext-insects.js"></script>
+  <script src="data/taxonomy-ext-invertebrates.js"></script>
+  <script src="data/taxonomy-ext-plants.js"></script>
+  <script src="data/taxonomy-ext-fungi-protists.js"></script>
+  <script src="data/taxonomy.js"></script>
+  <script src="data/photos.js"></script>
+  <script src="tree.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -20,9 +20,24 @@ npm run preview  # ビルド成果物のプレビュー（/books/ 配下。D's s
 - `site/` はルート配信用の静的ファイル。`scripts/build-root.mjs` が build 後に `dist/` 直下へコピーする:
   - `index.html` … D's slop 本体（カードを追加・更新するときはここを編集。HTML/CSS/少量のJSのみ、解析タグなし）
   - `thumbs/*.webp` … カードのサムネイル（1200x750 のスクショを 720x450 の WebP に軽量化）
+  - `taxonomy/` … 生き物の分類たんけん（`~/workspace/taxonomy-explorer` の実行に必要な静的ファイルのみ。`scripts/sync-apps.sh` で生成）
+  - `history/` … 世界同時年表（`/history/`）と科学技術史（`/history/science/`）。`~/workspace/history` を `--base=/history/` でビルドした成果物（同上）
   - `404.html` … GitHub Pages の 404 フォールバック。`/books/...` の深いリンクを `/books/?/...` に変換し、旧URL（`/awards`, `/award/:id`, `/monthly`, `/recommendations`）を `/books/` 配下へ転送する。本棚に新しいトップレベルのルートを足したら、ここの `legacy` 正規表現も更新するか検討する
   - `sitemap.xml`, `robots.txt`, `favicon.svg`
 - ワークフローは `npm run build` → `dist` アップロードのまま。
+
+## 同梱アプリの同期（`scripts/sync-apps.sh`）
+
+`site/taxonomy/` と `site/history/` は、ソース repo（`~/workspace/taxonomy-explorer`・`~/workspace/history`）を**非公開のまま成果物だけ同梱**している。ソースを更新したらローカルで次を実行し、差分をコミットする。
+
+```bash
+scripts/sync-apps.sh   # コピー先を削除 → taxonomy は静的ファイルをコピー、history は tsc -b + vite build --base=/history/ → 配置（冪等）
+```
+
+- ソースの場所は `WORKSPACE=...` で変更可。history 側のファイルは変更しない。
+- CI はこのスクリプトを呼ばない（成果物をコミットしておく）。
+- 都道府県クエストは Cloudflare Pages（`https://todofuken-quest.pages.dev/`）へのリンクのみで、ファイルは同梱しない。
+- 分類たんけんの写真は Wikimedia Commons のホットリンク（作者・ライセンス・出典を画面に表示）。
 
 ## プロジェクト構成
 

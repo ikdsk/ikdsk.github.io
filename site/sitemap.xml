@@ -2,151 +2,156 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ikdsk.github.io/</loc>
-    <changefreq>weekly</changefreq>
+    <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://ikdsk.github.io/awards</loc>
+    <loc>https://ikdsk.github.io/books/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ikdsk.github.io/books/awards</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ikdsk.github.io/monthly</loc>
+    <loc>https://ikdsk.github.io/books/monthly</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://ikdsk.github.io/recommendations</loc>
+    <loc>https://ikdsk.github.io/books/recommendations</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ikdsk.github.io/award/honya-taisho</loc>
+    <loc>https://ikdsk.github.io/books/award/honya-taisho</loc>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ikdsk.github.io/award/akutagawa-sho</loc>
+    <loc>https://ikdsk.github.io/books/award/akutagawa-sho</loc>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ikdsk.github.io/award/naoki-sho</loc>
+    <loc>https://ikdsk.github.io/books/award/naoki-sho</loc>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ikdsk.github.io/award/kono-mystery-ga-sugoi</loc>
+    <loc>https://ikdsk.github.io/books/award/kono-mystery-ga-sugoi</loc>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ikdsk.github.io/award/shinsho-taisho</loc>
+    <loc>https://ikdsk.github.io/books/award/shinsho-taisho</loc>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ikdsk.github.io/award/mishima-yukio-sho</loc>
+    <loc>https://ikdsk.github.io/books/award/mishima-yukio-sho</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ikdsk.github.io/award/tanizaki-junichiro-sho</loc>
+    <loc>https://ikdsk.github.io/books/award/tanizaki-junichiro-sho</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ikdsk.github.io/award/kawabata-yasunari-sho</loc>
+    <loc>https://ikdsk.github.io/books/award/kawabata-yasunari-sho</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ikdsk.github.io/award/yamamoto-shugoro-sho</loc>
+    <loc>https://ikdsk.github.io/books/award/yamamoto-shugoro-sho</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ikdsk.github.io/award/yoshikawa-eiji-bungaku-sho</loc>
+    <loc>https://ikdsk.github.io/books/award/yoshikawa-eiji-bungaku-sho</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ikdsk.github.io/award/yoshikawa-eiji-shinjin-sho</loc>
+    <loc>https://ikdsk.github.io/books/award/yoshikawa-eiji-shinjin-sho</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ikdsk.github.io/award/shibata-renzaburo-sho</loc>
+    <loc>https://ikdsk.github.io/books/award/shibata-renzaburo-sho</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ikdsk.github.io/award/oyabu-haruhiko-sho</loc>
+    <loc>https://ikdsk.github.io/books/award/oyabu-haruhiko-sho</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ikdsk.github.io/award/yamada-futaro-sho</loc>
+    <loc>https://ikdsk.github.io/books/award/yamada-futaro-sho</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ikdsk.github.io/award/suiri-sakka-kyokai-sho</loc>
+    <loc>https://ikdsk.github.io/books/award/suiri-sakka-kyokai-sho</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ikdsk.github.io/award/edogawa-ranpo-sho</loc>
+    <loc>https://ikdsk.github.io/books/award/edogawa-ranpo-sho</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ikdsk.github.io/award/honkaku-mystery-taisho</loc>
+    <loc>https://ikdsk.github.io/books/award/honkaku-mystery-taisho</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ikdsk.github.io/award/mephisto-sho</loc>
+    <loc>https://ikdsk.github.io/books/award/mephisto-sho</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ikdsk.github.io/award/shukan-bunshun-mystery-best10</loc>
+    <loc>https://ikdsk.github.io/books/award/shukan-bunshun-mystery-best10</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ikdsk.github.io/award/nihon-sf-taisho</loc>
+    <loc>https://ikdsk.github.io/books/award/nihon-sf-taisho</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ikdsk.github.io/award/seiun-sho</loc>
+    <loc>https://ikdsk.github.io/books/award/seiun-sho</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ikdsk.github.io/award/noma-bungei-shinjin-sho</loc>
+    <loc>https://ikdsk.github.io/books/award/noma-bungei-shinjin-sho</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ikdsk.github.io/award/oya-soichi-sho</loc>
+    <loc>https://ikdsk.github.io/books/award/oya-soichi-sho</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ikdsk.github.io/award/kobayashi-hideo-sho</loc>
+    <loc>https://ikdsk.github.io/books/award/kobayashi-hideo-sho</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ikdsk.github.io/award/kinobes</loc>
+    <loc>https://ikdsk.github.io/books/award/kinobes</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ikdsk.github.io/award/kono-light-novel-ga-sugoi</loc>
+    <loc>https://ikdsk.github.io/books/award/kono-light-novel-ga-sugoi</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>ページが見つかりません - D's slop</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<script>
+  // GitHub Pages の 404 を利用した振り分け。
+  //  1. /books/... の深いリンク        → /books/?/... に変換（SPA フォールバック。books/index.html が復元）
+  //  2. 旧URL（/awards, /award/:id 等）→ /books/ 配下へ転送
+  //  3. それ以外                        → 下の「見つかりません」を表示
+  (function (l) {
+    var path = l.pathname;
+    var legacy = /^\/(awards|award|monthly|recommendations)(\/|$)/;
+    var rest = null;
+    if (path.indexOf('/books/') === 0) rest = path.slice('/books/'.length);
+    else if (legacy.test(path)) rest = path.slice(1);
+    if (rest === null) return;
+    l.replace(
+      l.origin + '/books/?/' + rest.replace(/&/g, '~and~') +
+      (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+      l.hash
+    );
+  })(window.location);
+</script>
+<style>
+  body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #e9e4d6; color: #2b2419; font-family: "Hiragino Sans", -apple-system, "Noto Sans JP", sans-serif; text-align: center; padding: 24px; }
+  h1 { font-size: 28px; margin: 0 0 12px; }
+  a { color: #d7263d; font-weight: 700; }
+</style>
+</head>
+<body>
+<main>
+  <h1>ページが見つかりません</h1>
+  <p><a href="/">D's slop のトップへ</a></p>
+</main>
+</body>
+</html>

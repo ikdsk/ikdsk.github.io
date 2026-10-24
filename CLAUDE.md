@@ -1,20 +1,36 @@
-# 文学賞の本棚
+# 文学賞の本棚 / D's slop
 
-日本の文学賞受賞作品を集めた書評サイト。Vite + React + TypeScript。
+`https://ikdsk.github.io/` は個人開発ギャラリー「D's slop」（静的HTML、`site/`）。
+文学賞の本棚（Vite + React + TypeScript）は `https://ikdsk.github.io/books/` に配置。
 
 ## 開発コマンド
 
 ```bash
-npm run dev      # 開発サーバー起動 (localhost:5173)
-npm run build    # npx tsc -b && npx vite build
-npm run preview  # ビルド成果物のプレビュー
+npm run dev      # 開発サーバー起動 (localhost:5173/books/)
+npm run build    # 書影DL → tsc -b → vite build（dist/books/）→ site/ を dist/ へコピー
+npm run preview  # ビルド成果物のプレビュー（/books/ 配下。D's slop は dist/ 直下）
 ```
 
 変更後は必ず `npx tsc -b && npx vite build` でエラーがないことを確認する。
 
+## /books/ 配置と D's slop
+
+- `vite.config.ts`: `base: '/books/'`、`outDir: 'dist/books'`。`BrowserRouter basename="/books"`（`src/main.tsx`）。
+- 本棚の public アセット（書影・ペルソナ画像）は `import.meta.env.BASE_URL` 経由で参照する。`/covers/...` のような絶対パスをコードに直書きしない。
+- `site/` はルート配信用の静的ファイル。`scripts/build-root.mjs` が build 後に `dist/` 直下へコピーする:
+  - `index.html` … D's slop 本体（カードを追加・更新するときはここを編集。HTML/CSS/少量のJSのみ、解析タグなし）
+  - `thumbs/*.webp` … カードのサムネイル（1200x750 のスクショを 720x450 の WebP に軽量化）
+  - `404.html` … GitHub Pages の 404 フォールバック。`/books/...` の深いリンクを `/books/?/...` に変換し、旧URL（`/awards`, `/award/:id`, `/monthly`, `/recommendations`）を `/books/` 配下へ転送する。本棚に新しいトップレベルのルートを足したら、ここの `legacy` 正規表現も更新するか検討する
+  - `sitemap.xml`, `robots.txt`, `favicon.svg`
+- ワークフローは `npm run build` → `dist` アップロードのまま。
+
 ## プロジェクト構成
 
 ```
+site/                  ← D's slop（ルート配信用の静的ファイル。上記参照）
+scripts/
+  download-covers.mjs  ← 書影ダウンロード
+  build-root.mjs       ← site/ を dist/ へコピー
 src/
   data/
     awards.ts        ← 全賞＋受賞作データ（メインのデータファイル）
@@ -129,7 +145,6 @@ src/
 
 GitHub Pages で `https://ikdsk.github.io/` に公開中。`main` ブランチにpushすると GitHub Actions で自動デプロイ。
 
-GitHub Pages でサブパスにデプロイする場合は `vite.config.ts` の `base` を設定する。
 
 ## 関連スキル
 

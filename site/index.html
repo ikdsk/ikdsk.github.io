@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>D's slop</title>
+<meta name="description" content="AIと一緒に作った小さなアプリの置き場。MTG・ポケカのカードスキャナー、バンド練習アプリ、文学賞の本棚など。">
+<meta name="theme-color" content="#2b2419">
+<link rel="canonical" href="https://ikdsk.github.io/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ikdsk.github.io/">
+<meta property="og:title" content="D's slop">
+<meta property="og:description" content="AIと一緒に作った小さなアプリの置き場。">
+<meta property="og:image" content="https://ikdsk.github.io/thumbs/mtg-card-scanner.webp">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="D's slop">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="D's slop">
+<meta name="twitter:description" content="AIと一緒に作った小さなアプリの置き場。">
+<meta name="twitter:image" content="https://ikdsk.github.io/thumbs/mtg-card-scanner.webp">
+
+<style>
+  :root {
+    --paper: #e9e4d6;
+    --card: #fffdf7;
+    --ink: #2b2419;
+    --ink-soft: #5c5240;
+    --muted: #7d735a;
+    --red: #d7263d;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", -apple-system, "Segoe UI", sans-serif; background: var(--paper); color: var(--ink); line-height: 1.6; }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--red); outline-offset: 3px; }
+
+  .topbar { background: var(--ink); color: var(--paper); padding: 10px 28px; font-size: 12px; display: flex; justify-content: space-between; gap: 12px; }
+  .topbar .brand span { color: var(--red); }
+
+  header { max-width: 1080px; margin: 0 auto; padding: 56px 28px 28px; }
+  header h1 { font-size: 32px; font-weight: 900; line-height: 1.2; }
+  header p { margin-top: 10px; color: var(--ink-soft); font-size: 14px; font-weight: 500; }
+
+  .tabs { max-width: 1080px; margin: 0 auto; display: flex; gap: 10px; padding: 0 28px 32px; flex-wrap: wrap; }
+  .tabs[hidden] { display: none; }
+  .tabs button { font: inherit; border: 2px solid var(--ink); background: var(--card); color: var(--ink); padding: 6px 14px; font-size: 12px; font-weight: 700; cursor: pointer; transform: rotate(-1deg); }
+  .tabs button:nth-child(even) { transform: rotate(1deg); }
+  .tabs button[aria-pressed="true"] { background: var(--red); color: #fff; border-color: var(--red); }
+
+  .grid { max-width: 1080px; margin: 0 auto; padding: 0 28px 96px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px 28px; list-style: none; }
+  .grid > li[hidden] { display: none; }
+
+  .card { height: 100%; background: var(--card); border: 1px solid #d8d0b8; box-shadow: 0 3px 10px rgba(0,0,0,.12); padding: 12px; position: relative; transition: transform .15s, box-shadow .15s; display: flex; flex-direction: column; }
+  .grid > li:nth-child(odd) .card { transform: rotate(-1.2deg); }
+  .grid > li:nth-child(even) .card { transform: rotate(1deg); }
+  .card:hover, .card:focus-within { transform: scale(1.03) rotate(0deg) !important; z-index: 2; box-shadow: 0 8px 20px rgba(0,0,0,.18); }
+  .tape { position: absolute; top: -10px; left: 50%; transform: translateX(-50%) rotate(-3deg); width: 60px; height: 20px; background: rgba(215,38,61,.55); pointer-events: none; }
+  .thumb { aspect-ratio: 8 / 5; margin-top: 6px; border: 1px solid #00000022; overflow: hidden; background: linear-gradient(135deg, var(--c1), var(--c2)); display: flex; align-items: center; justify-content: center; font-size: 40px; }
+  .thumb img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+  .body { padding: 12px 6px 4px; flex: 1; display: flex; flex-direction: column; }
+  .card h2 { font-size: 16px; font-weight: 800; line-height: 1.4; }
+  /* カード全体をクリック可能にする（::after で全面を覆う） */
+  .card h2 a { text-decoration: none; }
+  .card h2 a::after { content: ""; position: absolute; inset: 0; }
+  .url { font-size: 11px; color: var(--muted); font-family: ui-monospace, "SF Mono", Menlo, monospace; margin-top: 2px; word-break: break-all; }
+  .card p { font-size: 13px; color: #4a4030; margin-top: 8px; }
+  .meta { margin-top: auto; padding-top: 12px; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .status { display: inline-block; font-size: 10px; font-weight: 800; padding: 1px 8px; background: var(--ink); color: #fff; letter-spacing: .04em; }
+  .repo { position: relative; z-index: 1; font-size: 11px; font-weight: 700; color: var(--ink-soft); }
+  .repo:hover { color: var(--red); }
+
+  footer { text-align: center; color: var(--muted); font-size: 12px; font-weight: 700; padding: 0 28px 56px; }
+  footer a { color: var(--ink-soft); }
+
+  @media (max-width: 899px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 599px) {
+    .topbar, header, .tabs, .grid { padding-left: 20px; padding-right: 20px; }
+    header { padding-top: 40px; }
+    header h1 { font-size: 28px; }
+    .grid { grid-template-columns: 1fr; padding-bottom: 72px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .card { transition: none; } }
+</style>
+</head>
+<body>
+<div class="topbar"><div class="brand">D's <span>slop</span></div><div>個人開発 実験ログ</div></div>
+
+<header>
+  <h1>D's slop.</h1>
+  <p>気の向くままに、AIと作った小さなアプリの置き場。</p>
+</header>
+
+<nav class="tabs" id="tabs" aria-label="カテゴリ" hidden>
+  <button type="button" data-filter="all" aria-pressed="true">すべて</button>
+  <button type="button" data-filter="tool" aria-pressed="false">ツール</button>
+  <button type="button" data-filter="music" aria-pressed="false">音楽</button>
+  <button type="button" data-filter="reading" aria-pressed="false">読書</button>
+</nav>
+
+<main>
+<ul class="grid" id="grid">
+  <li data-cat="tool">
+    <article class="card"><div class="tape"></div>
+      <div class="thumb" style="--c1:#1a1a1f;--c2:#2e7d32"><img src="thumbs/mtg-card-scanner.webp" width="720" height="450" alt="Mana Peek の画面" loading="lazy"></div>
+      <div class="body">
+        <h2><a href="https://ikdsk.github.io/mtg-card-scanner/">Mana Peek</a></h2>
+        <div class="url">ikdsk.github.io/mtg-card-scanner</div>
+        <p>MTGカードをカメラにかざすと、日本語名とUSD価格・概算の円が表示されるスキャナー。</p>
+        <div class="meta"><span class="status">LIVE</span><a class="repo" href="https://github.com/ikdsk/mtg-card-scanner">GitHub</a></div>
+      </div>
+    </article>
+  </li>
+  <li data-cat="tool">
+    <article class="card"><div class="tape"></div>
+      <div class="thumb" style="--c1:#163e36;--c2:#3949ab"><img src="thumbs/pokeca-scanner.webp" width="720" height="450" alt="ポケカスキャナー の画面" loading="lazy"></div>
+      <div class="body">
+        <h2><a href="https://ikdsk.github.io/pokeca-scanner/">ポケカスキャナー</a></h2>
+        <div class="url">ikdsk.github.io/pokeca-scanner</div>
+        <p>日本語版ポケモンカードをかざして、カード情報と参考価格を確認できるスキャナー。</p>
+        <div class="meta"><span class="status">LIVE</span><a class="repo" href="https://github.com/ikdsk/pokeca-scanner">GitHub</a></div>
+      </div>
+    </article>
+  </li>
+  <li data-cat="tool music">
+    <article class="card"><div class="tape"></div>
+      <div class="thumb" style="--c1:#14171f;--c2:#3ddc97"><img src="thumbs/band-machine.webp" width="720" height="450" alt="バンドマシン の画面" loading="lazy"></div>
+      <div class="body">
+        <h2><a href="https://ikdsk.github.io/band-machine/">バンドマシン</a></h2>
+        <div class="url">ikdsk.github.io/band-machine</div>
+        <p>コード進行を入れると、ドラム・ベース・ギター・キーボードのバッキングを鳴らしてくれる楽器練習アプリ。</p>
+        <div class="meta"><span class="status">LIVE</span><a class="repo" href="https://github.com/ikdsk/band-machine">GitHub</a></div>
+      </div>
+    </article>
+  </li>
+  <li data-cat="reading">
+    <article class="card"><div class="tape"></div>
+      <div class="thumb" style="--c1:#00897b;--c2:#00695c"><img src="thumbs/books.webp" width="720" height="450" alt="文学賞の本棚 の画面" loading="lazy"></div>
+      <div class="body">
+        <h2><a href="https://ikdsk.github.io/books/">文学賞の本棚</a></h2>
+        <div class="url">ikdsk.github.io/books</div>
+        <p>日本の文学賞の受賞作をまとめたガイド。AI書評と、AI選書家のおすすめ本つき。</p>
+        <div class="meta"><span class="status">LIVE</span><a class="repo" href="https://github.com/ikdsk/ikdsk.github.io">GitHub</a></div>
+      </div>
+    </article>
+  </li>
+  <li data-cat="tool">
+    <article class="card"><div class="tape"></div>
+      <div class="thumb" style="--c1:#546e7a;--c2:#263238"><img src="thumbs/fabjp.webp" width="720" height="450" alt="Flesh and Blood 非公式 日本語カード訳 の画面" loading="lazy"></div>
+      <div class="body">
+        <h2><a href="https://ikdsk.github.io/fabjp/">Flesh and Blood 非公式 日本語カード訳</a></h2>
+        <div class="url">ikdsk.github.io/fabjp</div>
+        <p>Flesh and Blood のカードを名前で検索できる非公式の日本語訳。訳文は自動翻訳が中心です。</p>
+        <div class="meta"><span class="status">LIVE</span></div>
+      </div>
+    </article>
+  </li>
+</ul>
+</main>
+
+<footer>D's slop — made with AI. · <a href="https://github.com/ikdsk">GitHub</a></footer>
+
+<script>
+  (function () {
+    var tabs = document.getElementById('tabs');
+    var items = document.querySelectorAll('#grid > li');
+    var buttons = tabs.querySelectorAll('button');
+    tabs.hidden = false;
+    buttons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var f = btn.getAttribute('data-filter');
+        buttons.forEach(function (b) { b.setAttribute('aria-pressed', String(b === btn)); });
+        items.forEach(function (li) {
+          li.hidden = f !== 'all' && li.getAttribute('data-cat').split(' ').indexOf(f) === -1;
+        });
+      });
+    });
+  })();
+</script>
+</body>
+</html>
